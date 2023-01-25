@@ -1,0 +1,1 @@
+export { transformSWAPISpeciesResponse } from "./transformSWAPISpeciesResponse";
