@@ -1,7 +1,10 @@
 import { getSpeciesFromApi } from "../swapi";
 import { transformSWAPISpeciesResponse } from "../transformers";
 
-export const getSpeciesInjection = async (getSpecies = getSpeciesFromApi) => {
+export const getSpeciesInjection = async (
+  /* istanbul ignore next */
+  getSpecies = getSpeciesFromApi
+) => {
   try {
     const swapiResponse = await getSpecies();
 

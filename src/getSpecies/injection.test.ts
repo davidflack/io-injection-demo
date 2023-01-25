@@ -18,10 +18,12 @@ describe("getSpeciesInjection", () => {
       },
     ]);
   });
+
   it("throws the correct error message when the call to SWAPI fails", async () => {
     const mockGetSpeciesFromAPIError = jest
       .fn()
       .mockRejectedValue("Uh-oh, error!");
+
     await expect(
       getSpeciesInjection(mockGetSpeciesFromAPIError)
     ).rejects.toThrow(
