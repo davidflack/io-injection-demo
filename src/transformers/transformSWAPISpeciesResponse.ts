@@ -12,7 +12,7 @@ export const transformSWAPISpecies = ({
 }: SWAPISpecies): TransformedSpecies => ({
   name,
   homeworld,
-  numFilms: films.length,
+  numFilms: films?.length || 0,
 });
 
 interface TransformSWAPISpeciesResponse {
