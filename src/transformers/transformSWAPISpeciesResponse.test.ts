@@ -4,15 +4,11 @@ import {
   transformSWAPISpecies,
   transformSWAPISpeciesResponse,
 } from "./transformSWAPISpeciesResponse";
+import { SWAPISpeciesFixture } from "../__fixtures__/SWAPISpeciesFixture";
 
 describe("transformSWAPISpecies", () => {
   it("transforms a `SWAPISpecies` to a `TransformedSpecies`", () => {
-    const swapiSpecies: SWAPISpecies = {
-      name: "foo-species",
-      homeworld: "foo-homeworld",
-      films: ["the-foontom-menace", "a-new-foo"],
-    };
-    expect(transformSWAPISpecies(swapiSpecies)).toEqual({
+    expect(transformSWAPISpecies(SWAPISpeciesFixture)).toEqual({
       name: "foo-species",
       homeworld: "foo-homeworld",
       numFilms: 2,
@@ -23,13 +19,7 @@ describe("transformSWAPISpecies", () => {
 describe("transformSWAPISpeciesResponse", () => {
   it("transforms a SWAPI species response to a `TransformedSpecies`", () => {
     const swapiResponse = {
-      data: [
-        {
-          name: "foo-species",
-          homeworld: "foo-homeworld",
-          films: ["the-foontom-menace", "a-new-foo"],
-        },
-      ],
+      data: [SWAPISpeciesFixture],
     } as AxiosResponse<SWAPISpecies[]>;
 
     expect(transformSWAPISpeciesResponse(swapiResponse)).toEqual([
